@@ -15,11 +15,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.mylearnings.core.R
+import com.mylearnings.core.util.UiEvent
 import com.mylearnings.core_ui.dimension.LocalSpacing
 import com.mylearnings.onboarding_presentation.components.ActionButton
 
 @Composable
-fun WelcomeScreen(modifier: Modifier = Modifier) {
+fun WelcomeScreen(modifier: Modifier = Modifier,
+                  onNavigate: (UiEvent) -> Unit) {
     val spacing = LocalSpacing.current
     Column(
         modifier = modifier.padding(spacing.spaceMedium),
