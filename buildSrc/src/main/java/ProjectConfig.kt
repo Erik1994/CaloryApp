@@ -6,6 +6,7 @@ object ProjectConfig {
     const val versionCode = 1
     const val versionName = "1.0"
     const val coreNameSpace = "com.mylearnings.core"
+    const val coreUiNameSpace = "com.mylearnings.core_ui"
     const val onBoardingDomainNameSpace = "com.mylearnings.onboarding_domain"
     const val onBoardingPresentationNameSpace = "com.mylearnings.onboarding_presentation"
     const val trackerDataNameSpace = "com.mylearnings.tracker_data"
