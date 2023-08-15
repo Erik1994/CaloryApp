@@ -25,7 +25,7 @@ android {
 }
 
 dependencies {
-    kapt DaggerHilt.hiltCompiler
+    kapt DaggerHilt.hiltCompailerGroovy
     implementation DaggerHilt.hiltAndroid
 
     testImplementation Testing.junit4

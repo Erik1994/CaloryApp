@@ -12,7 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.mylearnings.caloryapp.navigation.navigate
 import com.mylearnings.caloryapp.ui.theme.CaloryAppTheme
-import com.mylearnings.core.navigation.Route
+import com.mylearnings.core_ui.navigation.Route
 import com.mylearnings.onboarding_presentation.welcome.WelcomeScreen
 
 class MainActivity : ComponentActivity() {

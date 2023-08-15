@@ -1,8 +1,8 @@
 package com.mylearnings.caloryapp.navigation
 
 import androidx.navigation.NavController
-import com.mylearnings.core.util.UiEvent
+import com.mylearnings.core_ui.navigation.NavigationEvent
 
-fun NavController.navigate(uiEvent: UiEvent.Navigate) {
-    navigate(uiEvent.route)
+fun NavController.navigate(navigationEvent: NavigationEvent.Navigate) {
+    navigate(navigationEvent.route)
 }

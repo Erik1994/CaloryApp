@@ -1,4 +1,4 @@
-package com.mylearnings.core.navigation
+package com.mylearnings.core_ui.navigation
 
 object Route {
     const val WELCOME = "welcome"
