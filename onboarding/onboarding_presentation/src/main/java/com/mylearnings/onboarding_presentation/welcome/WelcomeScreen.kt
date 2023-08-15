@@ -3,6 +3,7 @@ package com.mylearnings.onboarding_presentation.welcome
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -25,7 +26,9 @@ fun WelcomeScreen(
 ) {
     val spacing = LocalSpacing.current
     Column(
-        modifier = modifier.padding(spacing.spaceMedium),
+        modifier = modifier
+            .fillMaxSize()
+            .padding(spacing.spaceMedium),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -37,7 +40,8 @@ fun WelcomeScreen(
             )
         Spacer(modifier = Modifier.height(spacing.spaceMedium))
         ActionButton(
-            buttonText = R.string.next, onClick = { onNavigate(NavigationEvent.Navigate(Route.AGE)) },
+            buttonText = R.string.next,
+            onClick = { onNavigate(NavigationEvent.Navigate(Route.GENDER)) },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }

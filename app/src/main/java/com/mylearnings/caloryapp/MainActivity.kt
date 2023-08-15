@@ -13,8 +13,11 @@ import androidx.navigation.compose.rememberNavController
 import com.mylearnings.caloryapp.navigation.navigate
 import com.mylearnings.caloryapp.ui.theme.CaloryAppTheme
 import com.mylearnings.core_ui.navigation.Route
+import com.mylearnings.onboarding_presentation.gender.GenderScreen
 import com.mylearnings.onboarding_presentation.welcome.WelcomeScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,13 +31,13 @@ class MainActivity : ComponentActivity() {
                     val navController = rememberNavController()
                     NavHost(navController = navController, startDestination = Route.WELCOME) {
                         composable(Route.WELCOME) {
-                            WelcomeScreen(modifier = Modifier.fillMaxSize(), onNavigate = { navController.navigate(it)})
+                            WelcomeScreen(onNavigate = { navController.navigate(it) })
                         }
                         composable(Route.AGE) {
 
                         }
                         composable(Route.GENDER) {
-
+                            GenderScreen(onNavigate = { navController.navigate(it) })
                         }
                         composable(Route.HEIGHT) {
 
