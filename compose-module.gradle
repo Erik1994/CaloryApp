@@ -28,6 +28,9 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion Compose.composeCompilerVersion
     }
+    kapt {
+        correctErrorTypes true
+    }
 }
 
 dependencies {

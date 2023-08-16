@@ -8,6 +8,7 @@ import com.mylearnings.core.data.preferences.Preferences
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ViewModelComponent
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -15,7 +16,7 @@ private const val SHARED_PREF_NAME = "com.mylearnings.caloryapp.shared_pref"
 
 @Module
 @InstallIn(SingletonComponent::class)
-object CoreModule {
+object PreferencesModule {
     @Provides
     @Singleton
     fun provideSharedPreferences(
