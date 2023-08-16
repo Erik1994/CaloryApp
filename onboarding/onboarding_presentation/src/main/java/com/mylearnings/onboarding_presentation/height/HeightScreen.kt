@@ -20,7 +20,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.mylearnings.core.R
 import com.mylearnings.core_ui.dimension.LocalSpacing
 import com.mylearnings.core_ui.navigation.Route
-import com.mylearnings.core_ui.navigation.UiEvent
+import com.mylearnings.core.util.UiEvent
 import com.mylearnings.onboarding_presentation.components.ActionButton
 import com.mylearnings.onboarding_presentation.components.UnitTextField
 

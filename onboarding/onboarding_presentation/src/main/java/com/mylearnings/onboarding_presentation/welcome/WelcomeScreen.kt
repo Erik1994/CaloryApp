@@ -15,7 +15,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.mylearnings.core.R
 import com.mylearnings.core_ui.navigation.Route
-import com.mylearnings.core_ui.navigation.UiEvent
+import com.mylearnings.core.util.UiEvent
 import com.mylearnings.core_ui.dimension.LocalSpacing
 import com.mylearnings.onboarding_presentation.components.ActionButton
 

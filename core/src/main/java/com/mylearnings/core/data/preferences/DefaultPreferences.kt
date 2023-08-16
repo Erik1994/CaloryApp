@@ -25,7 +25,7 @@ internal class DefaultPreferences(private val sharedPreferences: SharedPreferenc
         sharedPreferences.put(Preferences.KEY_FAT_RATIO, ratio)
     }
 
-    override fun saveCarbsRatio(ratio: GoalType) {
+    override fun saveCarbsRatio(ratio: Float) {
         sharedPreferences.put(Preferences.KEY_CARB_RATIO, ratio)
     }
 

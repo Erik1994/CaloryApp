@@ -5,9 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
 import com.mylearnings.core.data.model.ActivityLevel
-import com.mylearnings.core.data.model.Gender
 import com.mylearnings.core.data.preferences.Preferences
-import com.mylearnings.core_ui.navigation.UiEvent
+import com.mylearnings.core.util.UiEvent
 import com.mylearnings.onboarding_presentation.common.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -25,9 +24,7 @@ class ActivityViewModel @Inject constructor(
     }
 
     override fun onNextClick(route: String) {
-        viewModelScope.launch {
-            preferences.saveActivityLevel(selectedActivityLevel)
-            sendUiEvent(UiEvent.Navigate(route))
-        }
+        preferences.saveActivityLevel(selectedActivityLevel)
+        sendUiEvent(UiEvent.Navigate(route))
     }
 }

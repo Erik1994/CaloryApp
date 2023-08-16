@@ -10,7 +10,7 @@ interface Preferences {
     fun saveWeight(weight: Float)
     fun saveHeight(height: Int)
     fun saveFatRatio(ratio: Float)
-    fun saveCarbsRatio(ratio: GoalType)
+    fun saveCarbsRatio(ratio: Float)
     fun saveProteinRatio(ratio: Float)
     fun saveGender(gender: Gender)
     fun saveGaolType(type: GoalType)

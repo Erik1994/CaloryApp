@@ -1,6 +1,4 @@
-package com.mylearnings.core_ui.navigation
-
-import com.mylearnings.core_ui.util.UiText
+package com.mylearnings.core.util
 
 sealed class UiEvent {
     class Navigate(val route: String) : UiEvent()

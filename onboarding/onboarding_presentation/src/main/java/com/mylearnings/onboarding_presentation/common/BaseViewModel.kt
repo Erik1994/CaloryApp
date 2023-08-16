@@ -3,7 +3,7 @@ package com.mylearnings.onboarding_presentation.common
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mylearnings.core.data.preferences.Preferences
-import com.mylearnings.core_ui.navigation.UiEvent
+import com.mylearnings.core.util.UiEvent
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch

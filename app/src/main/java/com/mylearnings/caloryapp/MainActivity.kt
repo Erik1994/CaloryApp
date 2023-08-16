@@ -25,6 +25,7 @@ import com.mylearnings.onboarding_presentation.age.AgeScreen
 import com.mylearnings.onboarding_presentation.gender.GenderScreen
 import com.mylearnings.onboarding_presentation.goal.GoalScreen
 import com.mylearnings.onboarding_presentation.height.HeightScreen
+import com.mylearnings.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import com.mylearnings.onboarding_presentation.weight.WeightScreen
 import com.mylearnings.onboarding_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -79,7 +80,7 @@ class MainActivity : ComponentActivity() {
                                 )
                             }
                             composable(Route.NUTRIENT_GOAL) {
-
+                                NutrientGoalScreen(onNavigate = {navController.navigate(it)}, snackBarHostState = snackBarHostState)
                             }
                             composable(Route.ACTIVITY) {
                                 ActivityScreen(onNavigate = { navController.navigate(it) })

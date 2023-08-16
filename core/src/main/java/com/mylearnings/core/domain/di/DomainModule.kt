@@ -6,11 +6,10 @@ import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ViewModelComponent
-import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(ViewModelComponent::class)
-abstract class UseCaseModule {
+abstract class DomainModule {
     @Binds
     abstract fun bindFilterOutDigitUseCase(filterOutDigitsUseCase: FilterOutDigitsUseCaseImpl): FilterOutDigitsUseCase
 }

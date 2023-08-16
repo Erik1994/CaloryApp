@@ -1,4 +1,4 @@
-package com.mylearnings.core_ui.util
+package com.mylearnings.core.util
 
 import android.content.Context
 

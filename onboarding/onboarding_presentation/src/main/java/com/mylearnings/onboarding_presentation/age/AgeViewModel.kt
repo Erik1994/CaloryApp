@@ -7,9 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.mylearnings.core.R
 import com.mylearnings.core.data.preferences.Preferences
 import com.mylearnings.core.domain.usecase.FilterOutDigits.FilterOutDigitsUseCase
-import com.mylearnings.core_ui.navigation.Route
-import com.mylearnings.core_ui.navigation.UiEvent
-import com.mylearnings.core_ui.util.UiText
+import com.mylearnings.core.util.UiEvent
+import com.mylearnings.core.util.UiText
 import com.mylearnings.onboarding_presentation.common.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -30,18 +29,16 @@ class AgeViewModel @Inject constructor(
     }
 
     override fun onNextClick(route: String) {
-        viewModelScope.launch {
-            val ageNumber = age.toIntOrNull() ?: run {
-                sendUiEvent(
-                    UiEvent.ShowSnackBar(
-                        UiText.StringResource(R.string.error_age_cant_be_empty)
-                    )
+        val ageNumber = age.toIntOrNull() ?: run {
+            sendUiEvent(
+                UiEvent.ShowSnackBar(
+                    UiText.StringResource(R.string.error_age_cant_be_empty)
                 )
-                return@launch
-            }
-            preferences.saveAge(ageNumber)
-            sendUiEvent(UiEvent.Navigate(route))
+            )
+            return
         }
+        preferences.saveAge(ageNumber)
+        sendUiEvent(UiEvent.Navigate(route))
     }
 
     private companion object {
