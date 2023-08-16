@@ -22,6 +22,8 @@ import com.mylearnings.caloryapp.ui.theme.CaloryAppTheme
 import com.mylearnings.core_ui.navigation.Route
 import com.mylearnings.onboarding_presentation.age.AgeScreen
 import com.mylearnings.onboarding_presentation.gender.GenderScreen
+import com.mylearnings.onboarding_presentation.height.HeightScreen
+import com.mylearnings.onboarding_presentation.weight.WeightScreen
 import com.mylearnings.onboarding_presentation.welcome.WelcomeScreen
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -63,10 +65,16 @@ class MainActivity : ComponentActivity() {
                                 GenderScreen(onNavigate = { navController.navigate(it) })
                             }
                             composable(Route.HEIGHT) {
-
+                                HeightScreen(
+                                    onNavigate = { navController.navigate(it) },
+                                    snackBarHostState = snackBarHostState
+                                )
                             }
                             composable(Route.WEIGHT) {
-
+                                WeightScreen(
+                                    onNavigate = { navController.navigate(it) },
+                                    snackBarHostState = snackBarHostState
+                                )
                             }
                             composable(Route.NUTRIENT_GOAL) {
 

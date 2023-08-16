@@ -19,6 +19,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.mylearnings.core.R
 import com.mylearnings.core_ui.dimension.LocalSpacing
+import com.mylearnings.core_ui.navigation.Route
 import com.mylearnings.core_ui.navigation.UiEvent
 import com.mylearnings.onboarding_presentation.components.ActionButton
 import com.mylearnings.onboarding_presentation.components.UnitTextField
@@ -68,7 +69,7 @@ fun AgeScreen(
         }
         ActionButton(
             buttonText = R.string.next,
-            onClick = { viewModel.onNextClick() },
+            onClick = { viewModel.onNextClick(Route.HEIGHT) },
             modifier = Modifier.align(
                 Alignment.BottomEnd
             )

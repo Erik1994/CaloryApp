@@ -13,7 +13,7 @@ internal class DefaultPreferences(private val sharedPreferences: SharedPreferenc
         sharedPreferences.put(Preferences.KEY_AGE, age)
     }
 
-    override fun saveWight(weight: Float) {
+    override fun saveWeight(weight: Float) {
         sharedPreferences.put(Preferences.KEY_WEIGHT, weight)
     }
 

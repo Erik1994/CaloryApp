@@ -1,4 +1,4 @@
-package com.mylearnings.onboarding_presentation.age
+package com.mylearnings.onboarding_presentation.height
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import com.mylearnings.core.R
 import com.mylearnings.core.data.preferences.Preferences
 import com.mylearnings.core.domain.usecase.FilterOutDigits.FilterOutDigitsUseCase
-import com.mylearnings.core_ui.navigation.Route
 import com.mylearnings.core_ui.navigation.UiEvent
 import com.mylearnings.core_ui.util.UiText
 import com.mylearnings.onboarding_presentation.common.BaseViewModel
@@ -16,36 +15,36 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AgeViewModel @Inject constructor(
+class HeightViewModel @Inject constructor(
     preferences: Preferences,
     private val filterOutDigitsUseCase: FilterOutDigitsUseCase
 ) : BaseViewModel(preferences) {
-    var age by mutableStateOf(DEFAULT_AGE)
+    var height by mutableStateOf(DEFAULT_HEIGHT)
         private set
 
-    fun onAgeEnter(age: String) {
-        if (age.length <= MAX_AGE_SYMBOL_COUNT) {
-            this.age = filterOutDigitsUseCase(age)
+    fun onHeightEnter(height: String) {
+        if (height.length <= MAX_HEIGHT_SYMBOL_COUNT) {
+            this.height = filterOutDigitsUseCase(height)
         }
     }
 
     override fun onNextClick(route: String) {
         viewModelScope.launch {
-            val ageNumber = age.toIntOrNull() ?: run {
+            val heightNumber = height.toIntOrNull() ?: run {
                 sendUiEvent(
                     UiEvent.ShowSnackBar(
-                        UiText.StringResource(R.string.error_age_cant_be_empty)
+                        UiText.StringResource(R.string.error_height_cant_be_empty)
                     )
                 )
                 return@launch
             }
-            preferences.saveAge(ageNumber)
+            preferences.saveHeight(heightNumber)
             sendUiEvent(UiEvent.Navigate(route))
         }
     }
 
     private companion object {
-        const val MAX_AGE_SYMBOL_COUNT = 3
-        const val DEFAULT_AGE = "20"
+        const val MAX_HEIGHT_SYMBOL_COUNT = 3
+        const val DEFAULT_HEIGHT = "180"
     }
 }

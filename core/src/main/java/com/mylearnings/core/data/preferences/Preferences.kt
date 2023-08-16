@@ -7,7 +7,7 @@ import com.mylearnings.core.data.model.UserInfo
 
 interface Preferences {
     fun saveAge(age: Int)
-    fun saveWight(weight: Float)
+    fun saveWeight(weight: Float)
     fun saveHeight(height: Int)
     fun saveFatRatio(ratio: Float)
     fun saveCarbsRatio(ratio: GoalType)

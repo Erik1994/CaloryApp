@@ -1,11 +1,9 @@
 package com.mylearnings.onboarding_presentation.common
 
-import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mylearnings.core.data.preferences.Preferences
 import com.mylearnings.core_ui.navigation.UiEvent
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
@@ -21,4 +19,6 @@ abstract class BaseViewModel(
             _uiEvent.send(uiEvent)
         }
     }
+
+    abstract fun onNextClick(route: String)
 }

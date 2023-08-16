@@ -1,4 +1,4 @@
-package com.mylearnings.onboarding_presentation.age
+package com.mylearnings.onboarding_presentation.weight
 
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -6,8 +6,6 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
 import com.mylearnings.core.R
 import com.mylearnings.core.data.preferences.Preferences
-import com.mylearnings.core.domain.usecase.FilterOutDigits.FilterOutDigitsUseCase
-import com.mylearnings.core_ui.navigation.Route
 import com.mylearnings.core_ui.navigation.UiEvent
 import com.mylearnings.core_ui.util.UiText
 import com.mylearnings.onboarding_presentation.common.BaseViewModel
@@ -16,36 +14,35 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AgeViewModel @Inject constructor(
+class WeightViewModel @Inject constructor(
     preferences: Preferences,
-    private val filterOutDigitsUseCase: FilterOutDigitsUseCase
 ) : BaseViewModel(preferences) {
-    var age by mutableStateOf(DEFAULT_AGE)
+    var weight by mutableStateOf(DEFAULT_WEIGHT)
         private set
 
-    fun onAgeEnter(age: String) {
-        if (age.length <= MAX_AGE_SYMBOL_COUNT) {
-            this.age = filterOutDigitsUseCase(age)
+    fun onWeightEnter(weight: String) {
+        if (weight.length <= MAX_WEIGHT_SYMBOL_COUNT) {
+            this.weight = weight
         }
     }
 
     override fun onNextClick(route: String) {
         viewModelScope.launch {
-            val ageNumber = age.toIntOrNull() ?: run {
+            val weightNumber = weight.toFloatOrNull() ?: run {
                 sendUiEvent(
                     UiEvent.ShowSnackBar(
-                        UiText.StringResource(R.string.error_age_cant_be_empty)
+                        UiText.StringResource(R.string.error_weight_cant_be_empty)
                     )
                 )
                 return@launch
             }
-            preferences.saveAge(ageNumber)
+            preferences.saveWeight(weightNumber)
             sendUiEvent(UiEvent.Navigate(route))
         }
     }
 
     private companion object {
-        const val MAX_AGE_SYMBOL_COUNT = 3
-        const val DEFAULT_AGE = "20"
+        const val MAX_WEIGHT_SYMBOL_COUNT = 5
+        const val DEFAULT_WEIGHT = "80.0"
     }
 }
