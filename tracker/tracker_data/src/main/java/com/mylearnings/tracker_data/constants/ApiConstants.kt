@@ -1,4 +1,4 @@
-package com.mylearnings.tracker_data.remote.constants
+package com.mylearnings.tracker_data.constants
 
 object ApiConstants {
     const val BASE_URL = "https://us.openfoodfacts.org/"

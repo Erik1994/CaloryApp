@@ -1,7 +1,7 @@
-package com.mylearnings.tracker_data.di
+package com.mylearnings.tracker_data.remote.di
 
 import com.mylearnings.tracker_data.remote.OpenFoodApi
-import com.mylearnings.tracker_data.remote.constants.ApiConstants
+import com.mylearnings.tracker_data.constants.ApiConstants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object TrackerDataModule {
+object RemoteModule {
     private const val BASE_URL_NAME = "base_url"
 
     @Provides
