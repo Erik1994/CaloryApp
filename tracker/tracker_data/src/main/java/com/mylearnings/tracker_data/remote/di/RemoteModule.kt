@@ -1,6 +1,6 @@
 package com.mylearnings.tracker_data.remote.di
 
-import com.mylearnings.tracker_data.remote.OpenFoodApi
+import com.mylearnings.tracker_data.remote.api.OpenFoodApi
 import com.mylearnings.tracker_data.constants.ApiConstants
 import dagger.Module
 import dagger.Provides

@@ -3,6 +3,8 @@ package com.mylearnings.core.data.di
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import com.mylearnings.core.data.manager.ConnectionManager
+import com.mylearnings.core.data.manager.ConnectionManagerImpl
 import com.mylearnings.core.data.preferences.DefaultPreferences
 import com.mylearnings.core.data.preferences.Preferences
 import dagger.Module
@@ -15,7 +17,7 @@ private const val SHARED_PREF_NAME = "com.mylearnings.caloryapp.shared_pref"
 
 @Module
 @InstallIn(SingletonComponent::class)
-object PreferencesModule {
+object DataModule {
     @Provides
     @Singleton
     fun provideSharedPreferences(
@@ -28,5 +30,11 @@ object PreferencesModule {
     @Singleton
     fun providePreferences(sharedPreferences: SharedPreferences): Preferences {
         return DefaultPreferences(sharedPreferences)
+    }
+
+    @Provides
+    @Singleton
+    fun provideConnectionManager(app: Application): ConnectionManager {
+        return ConnectionManagerImpl(app)
     }
 }

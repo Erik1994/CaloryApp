@@ -13,4 +13,6 @@ android {
     namespace = ProjectConfig.coreNameSpace
 }
 
-dependencies { }
+dependencies {
+    "implementation" (Retrofit.retrofit)
+}

@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName
 
 data class Nutriments (
     @SerializedName("carbohydrates_100g")
-    val carbohydrates100g: Double,
+    val carbohydrates100g: Double?,
     @SerializedName("energy-kcal_100g")
-    val energyKcal100g: Double,
+    val energyKcal100g: Double?,
     @SerializedName("fat_100g")
-    val fat100g: Double,
+    val fat100g: Double?,
     @SerializedName("proteins_100g")
-    val proteins100g: Double
+    val proteins100g: Double?
 )

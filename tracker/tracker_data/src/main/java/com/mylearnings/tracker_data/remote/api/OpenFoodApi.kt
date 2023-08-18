@@ -1,7 +1,8 @@
-package com.mylearnings.tracker_data.remote
+package com.mylearnings.tracker_data.remote.api
 
 import com.mylearnings.tracker_data.constants.ApiConstants
 import com.mylearnings.tracker_data.remote.dto.SearchDto
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
