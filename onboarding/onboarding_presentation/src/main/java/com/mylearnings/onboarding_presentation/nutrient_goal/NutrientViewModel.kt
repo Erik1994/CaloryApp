@@ -3,17 +3,13 @@ package com.mylearnings.onboarding_presentation.nutrient_goal
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
-import androidx.lifecycle.viewModelScope
 import com.mylearnings.core.data.preferences.Preferences
-import com.mylearnings.core.domain.usecase.FilterOutDigits.FilterOutDigitsUseCase
+import com.mylearnings.core.domain.usecase.FilterOutDigitsUseCase
 import com.mylearnings.core.util.UiEvent
-import com.mylearnings.core.util.UiText
-import com.mylearnings.core_ui.navigation.Route
 import com.mylearnings.onboarding_domain.usecase.Result
 import com.mylearnings.onboarding_domain.usecase.ValidateNutrientsUseCase
 import com.mylearnings.onboarding_presentation.common.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel

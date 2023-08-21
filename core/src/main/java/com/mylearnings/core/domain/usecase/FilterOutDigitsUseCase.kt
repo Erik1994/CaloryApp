@@ -1,4 +1,4 @@
-package com.mylearnings.core.domain.usecase.FilterOutDigits
+package com.mylearnings.core.domain.usecase
 
 interface FilterOutDigitsUseCase {
     operator fun invoke(text: String): String
