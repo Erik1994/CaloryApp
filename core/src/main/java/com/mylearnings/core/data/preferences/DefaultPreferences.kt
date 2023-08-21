@@ -45,6 +45,14 @@ internal class DefaultPreferences(private val sharedPreferences: SharedPreferenc
         sharedPreferences.put(Preferences.KEY_ACTIVITY_LEVEL, level.name)
     }
 
+    override fun saveShouldShowOnBoarding(shouldShow: Boolean) {
+        sharedPreferences.put(Preferences.KEY_SHOW_ON_BOARDING, shouldShow)
+    }
+
+    override fun loadShouldShowOnBoarding(): Boolean {
+        return sharedPreferences.get(Preferences.KEY_SHOW_ON_BOARDING, true)
+    }
+
     override fun loadUserInfo(): UserInfo {
         val age: Int = sharedPreferences.get(Preferences.KEY_AGE, 0)
         val height: Int = sharedPreferences.get(Preferences.KEY_HEIGHT, 0)

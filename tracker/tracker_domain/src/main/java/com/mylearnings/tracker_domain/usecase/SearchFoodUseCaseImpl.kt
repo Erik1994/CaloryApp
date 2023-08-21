@@ -3,9 +3,8 @@ package com.mylearnings.tracker_domain.usecase
 import com.mylearnings.core.util.Resource
 import com.mylearnings.tracker_domain.model.TrackableFood
 import com.mylearnings.tracker_domain.repository.TrackerRepository
-import javax.inject.Inject
 
-class SearchFoodUseCaseImpl @Inject constructor(
+class SearchFoodUseCaseImpl(
     private val trackerRepository: TrackerRepository
 ) : SearchFoodUseCase {
     override suspend fun invoke(

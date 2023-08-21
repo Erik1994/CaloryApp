@@ -8,10 +8,9 @@ import com.mylearnings.core.data.preferences.Preferences
 import com.mylearnings.tracker_domain.model.TrackedFood
 import com.mylearnings.tracker_domain.usecase.helper.MealNutrients
 import com.mylearnings.tracker_domain.usecase.helper.Result
-import javax.inject.Inject
 import kotlin.math.roundToInt
 
-class CalculateMealNutrientsUseCaseImpl @Inject constructor(
+class CalculateMealNutrientsUseCaseImpl(
     private val preferences: Preferences
 ) : CalculateMealNutrientsUseCase {
     override fun invoke(trackedFoods: List<TrackedFood>): Result {
@@ -53,12 +52,13 @@ class CalculateMealNutrientsUseCaseImpl @Inject constructor(
     }
 
     private fun bmr(userInfo: UserInfo): Int {
-        return when(userInfo.gender) {
+        return when (userInfo.gender) {
             is Gender.Male -> {
                 (66.47f + 13.75f * userInfo.weight +
                         5f * userInfo.height - 6.75f * userInfo.age).roundToInt()
             }
-            is Gender.Female ->  {
+
+            is Gender.Female -> {
                 (665.09f + 9.56f * userInfo.weight +
                         1.84f * userInfo.height - 4.67 * userInfo.age).roundToInt()
             }
@@ -66,12 +66,12 @@ class CalculateMealNutrientsUseCaseImpl @Inject constructor(
     }
 
     private fun dailyCaloryRequirement(userInfo: UserInfo): Int {
-        val activityFactor = when(userInfo.activityLevel) {
+        val activityFactor = when (userInfo.activityLevel) {
             is ActivityLevel.Low -> 1.2f
             is ActivityLevel.Medium -> 1.3f
             is ActivityLevel.High -> 1.4f
         }
-        val caloryExtra = when(userInfo.goalType) {
+        val caloryExtra = when (userInfo.goalType) {
             is GoalType.LoseWeight -> -500
             is GoalType.KeepWeight -> 0
             is GoalType.GainWeight -> 500

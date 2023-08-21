@@ -16,6 +16,7 @@ import com.mylearnings.tracker_domain.repository.TrackerRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 import java.time.LocalDate
 
 class TrackerRepositoryImpl(
@@ -44,11 +45,11 @@ class TrackerRepositoryImpl(
         )
     }
 
-    override suspend fun insertTrackedFood(food: TrackedFood) {
+    override suspend fun insertTrackedFood(food: TrackedFood) = withContext(dispatcherIO) {
         dao.insertTrackedFood(TRACKED_FOOD_TO_TRACKED_FOOD_ENTITY.map(food))
     }
 
-    override suspend fun deleteTrackedFood(food: TrackedFood) {
+    override suspend fun deleteTrackedFood(food: TrackedFood) = withContext(dispatcherIO) {
         dao.deleteTrackedFood(TRACKED_FOOD_TO_TRACKED_FOOD_ENTITY.map(food))
     }
 

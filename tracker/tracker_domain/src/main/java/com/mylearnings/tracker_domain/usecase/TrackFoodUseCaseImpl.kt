@@ -5,12 +5,11 @@ import com.mylearnings.tracker_domain.model.TrackableFood
 import com.mylearnings.tracker_domain.model.TrackedFood
 import com.mylearnings.tracker_domain.repository.TrackerRepository
 import java.time.LocalDate
-import javax.inject.Inject
 import kotlin.math.roundToInt
 
-class TrackFoodUseCaseImpl @Inject constructor(
+class TrackFoodUseCaseImpl(
     private val trackerRepository: TrackerRepository
-) : TrackFoodUseCase{
+) : TrackFoodUseCase {
     override suspend operator fun invoke(
         trackableFood: TrackableFood,
         amount: Int,
