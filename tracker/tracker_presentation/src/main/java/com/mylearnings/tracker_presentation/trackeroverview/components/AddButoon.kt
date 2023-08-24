@@ -26,7 +26,7 @@ import com.mylearnings.core.R
 
 @Composable
 fun AddButton(
-    @StringRes text: Int,
+    text: String,
     color: Color = MaterialTheme.colorScheme.primary,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -51,7 +51,7 @@ fun AddButton(
         )
         Spacer(modifier = Modifier.width(spacing.spaceMedium))
         Text(
-            text = stringResource(id = text),
+            text = text,
             style = MaterialTheme.typography.labelLarge,
             color = color
         )
