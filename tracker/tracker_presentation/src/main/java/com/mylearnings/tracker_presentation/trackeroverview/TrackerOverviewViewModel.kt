@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.mylearnings.core.data.preferences.Preferences
 import com.mylearnings.core.util.UiEvent
 import com.mylearnings.core_ui.navigation.Route
-import com.mylearnings.onboarding_presentation.common.BaseViewModel
+import com.mylearnings.onboarding_presentation.common.TrackerBaseViewModel
 import com.mylearnings.tracker_domain.usecase.TrackerUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -20,7 +20,7 @@ import javax.inject.Inject
 class TrackerOverviewViewModel @Inject constructor(
     preferences: Preferences,
     private val trackerUseCases: TrackerUseCases
-) : BaseViewModel(preferences) {
+) : TrackerBaseViewModel(preferences) {
 
     private var getFoodsForDateJob: Job? = null
     var state by mutableStateOf(TrackerOverviewState())

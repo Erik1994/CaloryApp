@@ -35,9 +35,8 @@ fun WelcomeScreen(
         Text(
             text = stringResource(id = R.string.welcome_text),
             textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.displayLarge,
-
-            )
+            style = MaterialTheme.typography.displayLarge
+        )
         Spacer(modifier = Modifier.height(spacing.spaceMedium))
         ActionButton(
             buttonText = R.string.next,

@@ -28,6 +28,7 @@ import com.mylearnings.onboarding_presentation.height.HeightScreen
 import com.mylearnings.onboarding_presentation.nutrient_goal.NutrientGoalScreen
 import com.mylearnings.onboarding_presentation.weight.WeightScreen
 import com.mylearnings.onboarding_presentation.welcome.WelcomeScreen
+import com.mylearnings.tracker_presentation.trackeroverview.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -80,7 +81,10 @@ class MainActivity : ComponentActivity() {
                                 )
                             }
                             composable(Route.NUTRIENT_GOAL) {
-                                NutrientGoalScreen(onNavigate = {navController.navigate(it)}, snackBarHostState = snackBarHostState)
+                                NutrientGoalScreen(
+                                    onNavigate = { navController.navigate(it) },
+                                    snackBarHostState = snackBarHostState
+                                )
                             }
                             composable(Route.ACTIVITY) {
                                 ActivityScreen(onNavigate = { navController.navigate(it) })
@@ -89,7 +93,7 @@ class MainActivity : ComponentActivity() {
                                 GoalScreen(onNavigate = { navController.navigate(it) })
                             }
                             composable(Route.TRACKER_OVERVIEW) {
-
+                                TrackerOverviewScreen(onNavigate = { navController.navigate(it) })
                             }
                             composable(Route.SEARCH) {
 

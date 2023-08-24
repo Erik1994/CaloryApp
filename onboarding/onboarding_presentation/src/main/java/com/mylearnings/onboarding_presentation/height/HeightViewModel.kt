@@ -8,7 +8,7 @@ import com.mylearnings.core.data.preferences.Preferences
 import com.mylearnings.core.domain.usecase.FilterOutDigitsUseCase
 import com.mylearnings.core.util.UiEvent
 import com.mylearnings.core.util.UiText
-import com.mylearnings.onboarding_presentation.common.BaseViewModel
+import com.mylearnings.onboarding_presentation.common.OnBoardingBaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -16,7 +16,7 @@ import javax.inject.Inject
 class HeightViewModel @Inject constructor(
     preferences: Preferences,
     private val filterOutDigitsUseCase: FilterOutDigitsUseCase
-) : BaseViewModel(preferences) {
+) : OnBoardingBaseViewModel(preferences) {
     var height by mutableStateOf(DEFAULT_HEIGHT)
         private set
 

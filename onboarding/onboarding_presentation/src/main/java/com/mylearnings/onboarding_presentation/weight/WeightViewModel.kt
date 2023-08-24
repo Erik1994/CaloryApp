@@ -8,7 +8,7 @@ import com.mylearnings.core.R
 import com.mylearnings.core.data.preferences.Preferences
 import com.mylearnings.core.util.UiEvent
 import com.mylearnings.core.util.UiText
-import com.mylearnings.onboarding_presentation.common.BaseViewModel
+import com.mylearnings.onboarding_presentation.common.OnBoardingBaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -16,7 +16,7 @@ import javax.inject.Inject
 @HiltViewModel
 class WeightViewModel @Inject constructor(
     preferences: Preferences,
-) : BaseViewModel(preferences) {
+) : OnBoardingBaseViewModel(preferences) {
     var weight by mutableStateOf(DEFAULT_WEIGHT)
         private set
 

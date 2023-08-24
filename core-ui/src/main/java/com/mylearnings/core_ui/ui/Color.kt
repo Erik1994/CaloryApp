@@ -1,4 +1,4 @@
-package com.mylearnings.caloryapp.ui.theme
+package com.mylearnings.core_ui.ui
 
 import androidx.compose.ui.graphics.Color
 

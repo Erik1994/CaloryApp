@@ -8,7 +8,7 @@ import com.mylearnings.core.domain.usecase.FilterOutDigitsUseCase
 import com.mylearnings.core.util.UiEvent
 import com.mylearnings.onboarding_domain.usecase.Result
 import com.mylearnings.onboarding_domain.usecase.ValidateNutrientsUseCase
-import com.mylearnings.onboarding_presentation.common.BaseViewModel
+import com.mylearnings.onboarding_presentation.common.OnBoardingBaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -17,7 +17,7 @@ class NutrientViewModel @Inject constructor(
     preferences: Preferences,
     private val filterOutDigitsUseCase: FilterOutDigitsUseCase,
     private val validateNutrients: ValidateNutrientsUseCase
-) : BaseViewModel(preferences) {
+) : OnBoardingBaseViewModel(preferences) {
     var state by mutableStateOf(NutrientGoalState())
         private set
 
