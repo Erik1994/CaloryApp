@@ -20,7 +20,7 @@ import javax.inject.Inject
 class TrackerOverviewViewModel @Inject constructor(
     preferences: Preferences,
     private val trackerUseCases: TrackerUseCases
-) : TrackerBaseViewModel(preferences) {
+) : TrackerBaseViewModel() {
 
     private var getFoodsForDateJob: Job? = null
     var state by mutableStateOf(TrackerOverviewState())
