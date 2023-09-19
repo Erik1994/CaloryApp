@@ -12,4 +12,8 @@ object Route {
 
     const val TRACKER_OVERVIEW = "tracker_overview"
     const val SEARCH = "search"
+    const val MEAL_NAME = "mealName"
+    const val DAY_OF_MONTH = "dayOfMonth"
+    const val MONTH = "month"
+    const val YEAR = "year"
 }

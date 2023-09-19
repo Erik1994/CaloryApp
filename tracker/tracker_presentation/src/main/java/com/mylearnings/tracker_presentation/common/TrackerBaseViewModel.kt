@@ -1,4 +1,4 @@
-package com.mylearnings.onboarding_presentation.common
+package com.mylearnings.tracker_presentation.common
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

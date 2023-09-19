@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.mylearnings.core.data.preferences.Preferences
 import com.mylearnings.core.util.UiEvent
 import com.mylearnings.core_ui.navigation.Route
-import com.mylearnings.onboarding_presentation.common.TrackerBaseViewModel
 import com.mylearnings.tracker_domain.usecase.TrackerUseCases
+import com.mylearnings.tracker_presentation.common.TrackerBaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.launchIn
