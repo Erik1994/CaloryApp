@@ -54,6 +54,7 @@ fun SearchScreen(
                     snackbarHostState.showSnackbar(
                         message = uiEvent.message.asString(context)
                     )
+                    keyboardController?.hide()
                 }
 
                 is UiEvent.NavigateUp -> onNavigateUp()
@@ -74,7 +75,10 @@ fun SearchScreen(
         SearchTextField(
             text = state.query,
             onValueChange = { viewModel.onEvent(SearchEvent.OnQueryChange(it)) },
-            onSearch = { viewModel.onEvent(SearchEvent.OnSearch) },
+            onSearch = {
+                keyboardController?.hide()
+                viewModel.onEvent(SearchEvent.OnSearch)
+            },
             onFocusChanged = { viewModel.onEvent(SearchEvent.OnSearchFocusChanged(it.isFocused)) },
             showHint = state.isHintVisible
         )
@@ -97,6 +101,7 @@ fun SearchScreen(
                         )
                     },
                     onTrack = {
+                        keyboardController?.hide()
                         viewModel.onEvent(
                             SearchEvent.OnTrackFoodClick(
                                 food = food.food,

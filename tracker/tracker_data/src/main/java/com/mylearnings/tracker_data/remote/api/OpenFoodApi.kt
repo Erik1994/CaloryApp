@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface OpenFoodApi {
     @GET(ApiConstants.SEARCH_URL)
      suspend fun searchFood(
-         @Query("search_item") query: String,
+         @Query("search_terms") query: String,
          @Query("page") page: Int,
          @Query("page_size") pageSize: Int
      ): SearchDto

@@ -11,7 +11,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Surface
-import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavType
@@ -21,6 +20,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.mylearnings.caloryapp.navigation.navigate
 import com.mylearnings.caloryapp.ui.theme.CaloryAppTheme
+import com.mylearnings.core.data.preferences.Preferences
 import com.mylearnings.core.util.orDefault
 import com.mylearnings.core_ui.navigation.Route
 import com.mylearnings.onboarding_presentation.activity.ActivityScreen
@@ -34,12 +34,17 @@ import com.mylearnings.onboarding_presentation.welcome.WelcomeScreen
 import com.mylearnings.tracker_presentation.search.SearchScreen
 import com.mylearnings.tracker_presentation.trackeroverview.TrackerOverviewScreen
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+    @Inject
+    lateinit var preferences: Preferences
+
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val shouldShowOnBoarding = preferences.loadShouldShowOnBoarding()
         setContent {
             CaloryAppTheme {
                 // A surface container using the 'background' color from the theme
@@ -57,7 +62,7 @@ class MainActivity : ComponentActivity() {
                     ) { padding ->
                         NavHost(
                             navController = navController,
-                            startDestination = Route.WELCOME,
+                            startDestination = if (shouldShowOnBoarding) Route.WELCOME else Route.TRACKER_OVERVIEW,
                             modifier = Modifier.padding(padding)
                         ) {
                             composable(Route.WELCOME) {
