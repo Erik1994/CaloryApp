@@ -103,7 +103,7 @@ class SearchViewModel @Inject constructor(
                 }
 
                 is Resource.Loading -> {
-                    //TODO handle loading state
+
                 }
             }
         }

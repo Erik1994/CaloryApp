@@ -16,6 +16,4 @@ abstract class TrackerBaseViewModel() : ViewModel() {
             _uiEvent.send(uiEvent)
         }
     }
-
-    open fun onNextClick(route: String) = Unit
 }

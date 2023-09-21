@@ -26,7 +26,7 @@ class HeightViewModel @Inject constructor(
         }
     }
 
-    override fun onNextClick(route: String) {
+    override fun onNextClick() {
         val heightNumber = height.toIntOrNull() ?: run {
             sendUiEvent(
                 UiEvent.ShowSnackBar(
@@ -36,7 +36,7 @@ class HeightViewModel @Inject constructor(
             return
         }
         preferences.saveHeight(heightNumber)
-        sendUiEvent(UiEvent.Navigate(route))
+        sendUiEvent(UiEvent.Success)
     }
 
     private companion object {

@@ -21,8 +21,8 @@ class GoalViewModel @Inject constructor(
         selectedGoal = goalType
     }
 
-    override fun onNextClick(route: String) {
+    override fun onNextClick() {
         preferences.saveGaolType(selectedGoal)
-        sendUiEvent(UiEvent.Navigate(route))
+        sendUiEvent(UiEvent.Success)
     }
 }

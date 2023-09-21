@@ -12,6 +12,7 @@ import com.mylearnings.core_ui.dimension.LocalSpacing
 import com.mylearnings.core_ui.ui.BrightGreen
 import com.mylearnings.core_ui.ui.DarkGray
 import com.mylearnings.core_ui.ui.DarkGreen
+import com.mylearnings.core_ui.ui.ErrorRed
 import com.mylearnings.core_ui.ui.LightGray
 import com.mylearnings.core_ui.ui.MediumGray
 import com.mylearnings.core_ui.ui.Orange
@@ -27,6 +28,7 @@ private val DarkColorScheme = darkColorScheme(
     onSurface = TextWhite,
     onPrimary = Color.White,
     onSecondary = Color.White,
+    error = ErrorRed
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -39,6 +41,7 @@ private val LightColorScheme = lightColorScheme(
     onSurface = DarkGray,
     onPrimary = Color.White,
     onSecondary = Color.White,
+    error = ErrorRed
 )
 
 @Composable

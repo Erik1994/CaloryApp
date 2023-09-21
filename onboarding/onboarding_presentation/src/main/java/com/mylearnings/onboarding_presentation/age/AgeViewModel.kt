@@ -26,7 +26,7 @@ class AgeViewModel @Inject constructor(
         }
     }
 
-    override fun onNextClick(route: String) {
+    override fun onNextClick() {
         val ageNumber = age.toIntOrNull() ?: run {
             sendUiEvent(
                 UiEvent.ShowSnackBar(
@@ -36,7 +36,7 @@ class AgeViewModel @Inject constructor(
             return
         }
         preferences.saveAge(ageNumber)
-        sendUiEvent(UiEvent.Navigate(route))
+        sendUiEvent(UiEvent.Success)
     }
 
     private companion object {

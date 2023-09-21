@@ -21,8 +21,8 @@ class GenderViewModel @Inject constructor(
         selectedGender = gender
     }
 
-    override fun onNextClick(route: String) {
+    override fun onNextClick() {
         preferences.saveGender(selectedGender)
-        sendUiEvent(UiEvent.Navigate(route))
+        sendUiEvent(UiEvent.Success)
     }
 }

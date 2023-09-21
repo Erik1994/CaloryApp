@@ -19,25 +19,24 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.mylearnings.core_ui.dimension.LocalSpacing
-import com.mylearnings.core.util.UiEvent
 import com.mylearnings.core.R
 import com.mylearnings.core.data.model.ActivityLevel
-import com.mylearnings.core_ui.navigation.Route
+import com.mylearnings.core.util.UiEvent
+import com.mylearnings.core_ui.dimension.LocalSpacing
 import com.mylearnings.onboarding_presentation.components.ActionButton
 import com.mylearnings.onboarding_presentation.components.SelectableButton
 
 @Composable
 fun ActivityScreen(
     modifier: Modifier = Modifier,
-    onNavigate: (UiEvent.Navigate) -> Unit,
+    onNextClick: () -> Unit,
     viewModel: ActivityViewModel = hiltViewModel()
 ) {
     val spacing = LocalSpacing.current
     LaunchedEffect(key1 = true) {
         viewModel.navigationEvent.collect { event ->
             when (event) {
-                is UiEvent.Navigate -> onNavigate(event)
+                is UiEvent.Success -> onNextClick()
                 else -> Unit
             }
         }
@@ -94,7 +93,7 @@ fun ActivityScreen(
         }
         ActionButton(
             buttonText = R.string.next,
-            onClick = { viewModel.onNextClick(Route.GOAL) },
+            onClick = viewModel::onNextClick,
             modifier = Modifier.align(
                 Alignment.BottomEnd
             )

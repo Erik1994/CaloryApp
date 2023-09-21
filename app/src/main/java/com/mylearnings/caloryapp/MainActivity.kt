@@ -18,11 +18,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.mylearnings.caloryapp.navigation.navigate
 import com.mylearnings.caloryapp.ui.theme.CaloryAppTheme
 import com.mylearnings.core.data.preferences.Preferences
 import com.mylearnings.core.util.orDefault
-import com.mylearnings.core_ui.navigation.Route
+import com.mylearnings.caloryapp.navigation.Route
 import com.mylearnings.onboarding_presentation.activity.ActivityScreen
 import com.mylearnings.onboarding_presentation.age.AgeScreen
 import com.mylearnings.onboarding_presentation.gender.GenderScreen
@@ -66,43 +65,51 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.padding(padding)
                         ) {
                             composable(Route.WELCOME) {
-                                WelcomeScreen(onNavigate = { navController.navigate(it) })
+                                WelcomeScreen(onNextClick = { navController.navigate(Route.GENDER) })
                             }
                             composable(Route.AGE) {
                                 AgeScreen(
-                                    onNavigate = { navController.navigate(it) },
+                                    onNextClick = { navController.navigate(Route.HEIGHT) },
                                     snackBarHostState = snackBarHostState
                                 )
                             }
                             composable(Route.GENDER) {
-                                GenderScreen(onNavigate = { navController.navigate(it) })
+                                GenderScreen(onNextClick = { navController.navigate(Route.AGE) })
                             }
                             composable(Route.HEIGHT) {
                                 HeightScreen(
-                                    onNavigate = { navController.navigate(it) },
+                                    onNextClick = { navController.navigate(Route.WEIGHT) },
                                     snackBarHostState = snackBarHostState
                                 )
                             }
                             composable(Route.WEIGHT) {
                                 WeightScreen(
-                                    onNavigate = { navController.navigate(it) },
+                                    onNextClick = { navController.navigate(Route.ACTIVITY) },
                                     snackBarHostState = snackBarHostState
                                 )
                             }
                             composable(Route.NUTRIENT_GOAL) {
                                 NutrientGoalScreen(
-                                    onNavigate = { navController.navigate(it) },
+                                    onNextClick = { navController.navigate(Route.TRACKER_OVERVIEW) },
                                     snackBarHostState = snackBarHostState
                                 )
                             }
                             composable(Route.ACTIVITY) {
-                                ActivityScreen(onNavigate = { navController.navigate(it) })
+                                ActivityScreen(onNextClick = { navController.navigate(Route.GOAL) })
                             }
                             composable(Route.GOAL) {
-                                GoalScreen(onNavigate = { navController.navigate(it) })
+                                GoalScreen(onNextClick = { navController.navigate(Route.NUTRIENT_GOAL) })
                             }
                             composable(Route.TRACKER_OVERVIEW) {
-                                TrackerOverviewScreen(onNavigate = { navController.navigate(it) })
+                                TrackerOverviewScreen(onNavigateToSearch = { mealName, day, month, year ->
+                                    navController.navigate(
+                                        Route.SEARCH
+                                                + "/$mealName"
+                                                + "/$day"
+                                                + "/$month"
+                                                + "/$year"
+                                    )
+                                })
                             }
                             composable(
                                 route = Route.SEARCH + "/{${Route.MEAL_NAME}}/{${Route.DAY_OF_MONTH}}/{${Route.MONTH}}/{${Route.YEAR}}",

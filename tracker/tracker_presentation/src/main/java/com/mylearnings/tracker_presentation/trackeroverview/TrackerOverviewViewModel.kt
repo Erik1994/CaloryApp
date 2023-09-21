@@ -5,8 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.viewModelScope
 import com.mylearnings.core.data.preferences.Preferences
-import com.mylearnings.core.util.UiEvent
-import com.mylearnings.core_ui.navigation.Route
 import com.mylearnings.tracker_domain.usecase.TrackerUseCases
 import com.mylearnings.tracker_presentation.common.TrackerBaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -33,18 +31,6 @@ class TrackerOverviewViewModel @Inject constructor(
 
     fun onEvent(event: TrackerOverviewEvent) {
         when (event) {
-            is TrackerOverviewEvent.OnAddFoodClick -> {
-                sendUiEvent(
-                    UiEvent.Navigate(
-                        route = Route.SEARCH
-                                + "/${event.meal.mealType.name}"
-                                + "/${state.date.dayOfMonth}"
-                                + "/${state.date.monthValue}"
-                                + "/${state.date.year}"
-                    )
-                )
-            }
-
             is TrackerOverviewEvent.OnNextDayClick -> {
                 state = state.copy(
                     date = state.date.plusDays(1)

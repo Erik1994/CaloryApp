@@ -43,7 +43,7 @@ class NutrientViewModel @Inject constructor(
                         preferences.saveFatRatio(result.fatRatio)
                         preferences.saveCarbsRatio(result.carbsRatio)
                         preferences.saveProteinRatio(result.proteinRatio)
-                        onNextClick(event.route)
+                        onNextClick()
                     }
                     is Result.Error -> {
                         sendUiEvent(UiEvent.ShowSnackBar(result.message))
@@ -54,7 +54,7 @@ class NutrientViewModel @Inject constructor(
         }
     }
 
-    override fun onNextClick(route: String) {
-        sendUiEvent(UiEvent.Navigate(route))
+    override fun onNextClick() {
+        sendUiEvent(UiEvent.Success)
     }
 }

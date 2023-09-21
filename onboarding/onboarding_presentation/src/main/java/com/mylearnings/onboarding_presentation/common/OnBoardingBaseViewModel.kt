@@ -20,5 +20,5 @@ abstract class OnBoardingBaseViewModel(
         }
     }
 
-    open fun onNextClick(route: String) = Unit
+    open fun onNextClick() = Unit
 }

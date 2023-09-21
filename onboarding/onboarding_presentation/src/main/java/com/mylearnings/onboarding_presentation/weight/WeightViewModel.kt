@@ -26,7 +26,7 @@ class WeightViewModel @Inject constructor(
         }
     }
 
-    override fun onNextClick(route: String) {
+    override fun onNextClick() {
         viewModelScope.launch {
             val weightNumber = weight.toFloatOrNull() ?: run {
                 sendUiEvent(
@@ -37,7 +37,7 @@ class WeightViewModel @Inject constructor(
                 return@launch
             }
             preferences.saveWeight(weightNumber)
-            sendUiEvent(UiEvent.Navigate(route))
+            sendUiEvent(UiEvent.Success)
         }
     }
 

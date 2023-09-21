@@ -21,8 +21,8 @@ class ActivityViewModel @Inject constructor(
         selectedActivityLevel = activityLevel
     }
 
-    override fun onNextClick(route: String) {
+    override fun onNextClick() {
         preferences.saveActivityLevel(selectedActivityLevel)
-        sendUiEvent(UiEvent.Navigate(route))
+        sendUiEvent(UiEvent.Success)
     }
 }

@@ -1,4 +1,4 @@
-package com.mylearnings.core_ui.navigation
+package com.mylearnings.caloryapp.navigation
 
 object Route {
     const val WELCOME = "welcome"

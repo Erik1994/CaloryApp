@@ -7,6 +7,6 @@ interface SearchFoodUseCase {
     suspend operator fun invoke(
         query: String,
         page: Int = 1,
-        pageSize: Int = 40
+        pageSize: Int = 100
     ): Resource<List<TrackableFood>>
 }
