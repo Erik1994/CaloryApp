@@ -10,5 +10,5 @@ android {
 }
 
 dependencies {
-    "implementation"(project(Modules.core))
+    singleModule(Modules.core)
 }

@@ -10,5 +10,5 @@ android {
 }
 
 dependencies {
-    "implementation" (Retrofit.retrofit)
+    retrofit()
 }

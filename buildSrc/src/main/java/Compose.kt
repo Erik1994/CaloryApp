@@ -1,3 +1,6 @@
+import org.gradle.api.artifacts.dsl.DependencyHandler
+import org.gradle.kotlin.dsl.project
+
 object Compose {
     const val composeVersion = "1.5.0"
     const val composeCompilerVersion = "1.4.8"
@@ -22,4 +25,16 @@ object Compose {
 
     private const val lifecycleVersion = "2.6.1"
     const val viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycleVersion"
+}
+
+fun DependencyHandler.compose() {
+    implementation(Compose.activityCompose)
+    platformImpl(platformDependecy = Compose.composeBom)
+    implementation(Compose.ui)
+    implementation(Compose.graphics)
+    implementation(Compose.uiToolingPreview)
+    implementation(Compose.material)
+    implementation(Compose.navigation)
+    implementation(Compose.hiltNavigationCompose)
+    implementation(Compose.viewModelCompose)
 }

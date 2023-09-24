@@ -10,7 +10,7 @@ android {
 }
 
 dependencies {
-    "implementation"(project(Modules.core))
-    "implementation"(project(Modules.coreUi))
-    "implementation"(project(Modules.onboardingDomain))
+    singleModule(Modules.core)
+    singleModule(Modules.coreUi)
+    singleModule(Modules.onboardingDomain)
 }
